@@ -3,21 +3,21 @@ import SpotifyProvider from "next-auth/providers/spotify";
 
 // persmissions to have access with different endpoints
 const scopes = [
-  "streaming",
+  // "streaming",
   "user-read-private",
   "user-read-email",
-  "user-modify-playback-state",
-  "user-read-playback-state",
+  // "user-modify-playback-state",
+  // "user-read-playback-state",
   "user-library-read",
-  "user-library-modify",
+  // "user-library-modify",
   "user-read-recently-played",
   "user-top-read",
   "user-follow-read",
-  "user-follow-modify",
+  // "user-follow-modify",
   "playlist-read-private",
   "playlist-read-collaborative",
-  "playlist-modify-public",
-  "playlist-modify-private"
+  // "playlist-modify-public",
+  // "playlist-modify-private"
 ].join(",");
 
 const params = {
