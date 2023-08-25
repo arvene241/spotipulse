@@ -1,4 +1,4 @@
-import { FollowingArtists, Playlists, SpotifyUser } from "@/types/types";
+import { FollowingArtists, Playlists, SpotifyUser, TopArtists, TopTracks } from "@/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
@@ -30,22 +30,22 @@ export const spotifyApi = createApi({
     getPlaylists: builder.query<Playlists, string>({
       query: () => "/me/playlists",
     }),
-    getTopArtistsShort: builder.query({
+    getTopArtistsShort: builder.query<TopArtists, string>({
       query: () => "/me/top/artists?limit=50&time_range=short_term",
     }),
-    getTopArtistsMedium: builder.query({
+    getTopArtistsMedium: builder.query<TopArtists, string>({
       query: () => "/me/top/artists?limit=50&time_range=medium_term",
     }),
-    getTopArtistsLong: builder.query({
+    getTopArtistsLong: builder.query<TopArtists, string>({
       query: () => "/me/top/artists?limit=50&time_range=long_term",
     }),
-    getTopTracksShort: builder.query({
+    getTopTracksShort: builder.query<TopTracks, string>({
       query: () => "/me/top/tracks?limit=50&time_range=short_term",
     }),
-    getTopTracksMedium: builder.query({
+    getTopTracksMedium: builder.query<TopTracks, string>({
       query: () => "/me/top/tracks?limit=50&time_range=medium_term",
     }),
-    getTopTracksLong: builder.query({
+    getTopTracksLong: builder.query<TopTracks, string>({
       query: () => "/me/top/tracks?limit=50&time_range=long_term",
     }),
     getArtist: builder.query({

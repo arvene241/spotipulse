@@ -9,8 +9,31 @@ interface Images {
   width: number;
 }
 
+interface Album {
+  album_type: string;
+  total_tracks: number;
+  available_markets: Array<string>;
+  external_urls: {
+    spotify: string;
+  }
+  href: string;
+  id: string;
+  images: Images[];
+  name: string;
+  release_date: string;
+  type: string;
+  uri: string;
+  genres: Array<string>;
+  label: string;
+  popularity: number;
+  album_group: string;
+  artists: ArtistItems[];
+}
+
 interface ArtistItems {
-  external_urls: object;
+  external_urls: {
+    spotify: string;
+  }
   followers: Follower
   genres: Array<string>;
   href: string;
@@ -23,7 +46,9 @@ interface ArtistItems {
 }
 
 interface PlaylistOwner {
-  external_urls: object;
+  external_urls: {
+    spotify: string;
+  }
   followers: Follower;
   href: string;
   id: string;
@@ -32,10 +57,32 @@ interface PlaylistOwner {
   display_name: string;
 }
 
+export interface TracksItems {
+  album: Album;
+  artists: ArtistItems[];
+  available_markets: Array<string>;
+  disc_number: number;
+  duration_ms: number;
+  explicit: boolean;
+  external_urls: {
+    spotify: string;
+  }
+  href: string;
+  id: string;
+  name: string;
+  popularity: number;
+  preview_url: string;
+  track_number: number;
+  uri: string;
+  is_local: boolean;
+}
+
 interface PlaylistItems {
   collaborative: string;
   description: string;
-  external_urls: object;
+  external_urls: {
+    spotify: string;
+  }
   href: string;
   id: string;
   images: Images[];
@@ -58,6 +105,9 @@ export interface SpotifyUser {
   images: Images[];
   type: string;
   uri: string;
+  external_urls: {
+    spotify: string;
+  }
 }
 
 export interface FollowingArtists {
@@ -72,4 +122,16 @@ export interface Playlists {
   href: string;
   total: number;
   items: PlaylistItems[];
+}
+
+export interface TopTracks {
+  href: string;
+  total: number;
+  items: TracksItems[];
+}
+
+export interface TopArtists {
+  href: string;
+  total: number;
+  items: ArtistItems[];
 }
