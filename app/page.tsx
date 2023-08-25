@@ -14,8 +14,8 @@ export default function Home() {
   dispatch(setCredentials({ accessToken: session?.accessToken, user: session?.user }));
 
   return (
-    <main className="container min-h-screen w-full md:pl-[100px]">
+    <div className="pb-[70px] md:pl-[100px] md:pb-0">
       {session?.accessToken && <Profile />}
-    </main>
+    </div>
   );
 }

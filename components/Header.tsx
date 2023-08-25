@@ -15,7 +15,7 @@ const Header = () => {
       {pathname !== "/signin" && (
         <header
           className="fixed bottom-0 md:left-0 w-screen md:w-[100px] h-[70px] md:h-screen bg-navBlack 
-      flex items-center justify-between md:flex-col"
+      flex items-center justify-between md:flex-col z-50"
         >
           <div className="hidden md:block mt-10 group">
             <Link href="/">
@@ -28,8 +28,8 @@ const Header = () => {
                 href={item.href}
                 key={item.linkName}
                 className={cn(
-                  "flex flex-col items-center justify-center basis-full grow w-full h-full text-xs text-lightGrey md:p-4 font-medium hover:hover-active",
-                  { "hover-active": isActive(item.href) }
+                  "flex flex-col items-center justify-center basis-full grow w-full h-full text-xs text-lightGrey md:p-4 font-medium hover:hover-active hover:text-white",
+                  { "hover-active text-white": isActive(item.href) }
                 )}
               >
                 <div className="text-lg mb-2">{item.icon}</div>
