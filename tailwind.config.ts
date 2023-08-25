@@ -25,7 +25,10 @@ const config: Config = {
         lightGrey: '#9B9B9B',
         grey: '#404040',
         darkGrey: '#282828'
-      }
+      },
+      fontSize: {
+        h1: '3.125rem',
+      },
     },
   },
   plugins: [],
