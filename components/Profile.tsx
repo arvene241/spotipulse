@@ -16,6 +16,7 @@ import Button from "./Button";
 import { useRouter } from "next/navigation";
 import { FaInfoCircle } from "react-icons/fa";
 import { formatDuration } from "@/libs/utils";
+import TrackItem from "./TrackItem";
 
 const Profile = () => {
   const dispatch = useAppDispatch();
@@ -101,9 +102,9 @@ const Profile = () => {
             />
           </header>
 
-          <div className="w-full block md:flex items-center justify-between gap-[70px] mt-[70px] md:mt-[100px]">
+          <div className="w-full block md:grid md:grid-cols-2 gap-[70px] mt-[70px] md:mt-[100px]">
             <div className="w-full">
-              <div className="flex items-center justify-between mb-[40px]">
+              <div className="w-full flex items-center justify-between mb-[40px] gap-2">
                 <h2 className="font-black text-xl">Top Artists of All Time</h2>
                 <Button
                   content="See more"
@@ -142,7 +143,7 @@ const Profile = () => {
             </div>
 
             <div className="w-full mt-[50px] md:mt-0">
-              <div className="flex items-center justify-between mb-[40px]">
+              <div className="w-full flex items-center justify-between mb-[40px] gap-2">
                 <h2 className="font-black text-xl">Top Tracks of All Time</h2>
                 <Button
                   content="See more"
@@ -151,49 +152,9 @@ const Profile = () => {
               </div>
 
               {topTracksData && (
-                <ul className="flex flex-col items-center justify-center gap-[30px]">
+                <ul className="flex flex-col gap-[30px]">
                   {topTracksData.items.slice(0, 10).map((item) => (
-                    <li key={item.id} className="w-full">
-                      <Link
-                        href={`/track/${item.id}`}
-                        className="flex items-center gap-[20px] group"
-                      >
-                        <div className="relative w-[50px] h-[50px]">
-                          <Image
-                            src={item.album.images[0].url}
-                            alt="Album Artwork"
-                            fill
-                          />
-                          <div className="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-[rgba(0,0,0,0.5)]">
-                            <FaInfoCircle className="text-[25px]" />
-                          </div>
-                        </div>
-
-                        <div className="flex-1 flex items-center justify-between gap-4">
-                          <div className="w-full overflow-hidden">
-                            <p className="truncate">{item.name}</p>
-                            <div className="truncate text-lightGrey text-sm">
-                              {item.artists.map(({ name }, i) => (
-                                  <span key={i}>
-                                    {name}
-                                    {item.artists.length > 0 &&
-                                    i === item.artists.length - 1
-                                      ? ""
-                                      : ","}
-                                    &nbsp;
-                                  </span>
-                                ))}
-                              &nbsp;&middot;&nbsp;&nbsp;
-                              {item.album.name}
-                            </div>
-                          </div>
-
-                          <span className="text-lightGrey text-sm">
-                            {formatDuration(item.duration_ms)}
-                          </span>
-                        </div>
-                      </Link>
-                    </li>
+                    <TrackItem item={item} key={item.id} />
                   ))}
                 </ul>
               )}
