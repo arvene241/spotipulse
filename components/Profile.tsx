@@ -102,7 +102,9 @@ const Profile = () => {
             />
           </header>
 
-          <div className="w-full block md:grid md:grid-cols-2 gap-[70px] mt-[70px] md:mt-[100px]">
+          {/* Top Tracks and Artists */}
+          <div className="w-full block md:grid md:grid-cols-2 gap-[70px] mt-[70px] md:mt-[100px]">\
+            {/* Top Artists */}
             <div className="w-full">
               <div className="w-full flex items-center justify-between mb-[40px] gap-2">
                 <h2 className="font-black text-xl">Top Artists of All Time</h2>
@@ -142,6 +144,7 @@ const Profile = () => {
               )}
             </div>
 
+            {/* Top Tracks */}
             <div className="w-full mt-[50px] md:mt-0">
               <div className="w-full flex items-center justify-between mb-[40px] gap-2">
                 <h2 className="font-black text-xl">Top Tracks of All Time</h2>
