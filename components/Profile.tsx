@@ -15,34 +15,37 @@ import Link from "next/link";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
 import { FaInfoCircle } from "react-icons/fa";
-import { formatDuration } from "@/libs/utils";
 import TrackItem from "./TrackItem";
 
 const Profile = () => {
   const dispatch = useAppDispatch();
   const accessToken = useAppSelector((state) => state.auth.accessToken);
+  const userProfile = useAppSelector((state) => state.auth.user);
 
   const router = useRouter();
 
   const { data: userData, isLoading: isUserLoading } =
     useGetUserQuery(accessToken);
 
-  const { data: followingData, refetch: refetchFollowing } =
+  const { data: followingData } =
     useGetFollowingQuery(accessToken);
 
-  const { data: playlistsData, refetch: refetchPlaylists } =
+  const { data: playlistsData } =
     useGetPlaylistsQuery(accessToken);
 
-  const { data: topArtistsData, refetch: refetchTopArtists } =
+  const { data: topArtistsData } =
     useGetTopArtistsLongQuery(accessToken);
 
-  const { data: topTracksData, refetch: refetchTopTracks } =
+  const { data: topTracksData } =
     useGetTopTracksLongQuery(accessToken);
 
-  const handleLogout = () => {
+  const handleLogout = () => {   
     dispatch(logout);
     signOut({ callbackUrl: "/signin" });
   };
+
+  {console.log('userData', userData)}
+  {console.log('userProfile', userProfile)}
 
   return (
     <main className="container main">
@@ -103,11 +106,11 @@ const Profile = () => {
           </header>
 
           {/* Top Tracks and Artists */}
-          <div className="w-full block md:grid md:grid-cols-2 gap-[70px] mt-[70px] md:mt-[100px]">\
+          <div className="w-full block md:grid md:grid-cols-2 gap-[70px] mt-[70px] md:mt-[100px]">
             {/* Top Artists */}
             <div className="w-full">
               <div className="w-full flex items-center justify-between mb-[40px] gap-2">
-                <h2 className="font-black text-xl">Top Artists of All Time</h2>
+                <h3 className="font-black text-xl">Top Artists of All Time</h3>
                 <Button
                   content="See more"
                   handleClick={() => router.push("/artists")}
@@ -115,7 +118,7 @@ const Profile = () => {
               </div>
 
               {topArtistsData && (
-                <ul className="flex flex-col items-center justify-center gap-[30px]">
+                <ul className="flex flex-col items-center justify-center gap-[20px] md:gap-[30px]">
                   {topArtistsData.items.slice(0, 10).map((item) => (
                     <li key={item.id} className="w-full">
                       <Link
@@ -147,7 +150,7 @@ const Profile = () => {
             {/* Top Tracks */}
             <div className="w-full mt-[50px] md:mt-0">
               <div className="w-full flex items-center justify-between mb-[40px] gap-2">
-                <h2 className="font-black text-xl">Top Tracks of All Time</h2>
+                <h3 className="font-black text-xl">Top Tracks of All Time</h3>
                 <Button
                   content="See more"
                   handleClick={() => router.push("/tracks")}
@@ -155,7 +158,7 @@ const Profile = () => {
               </div>
 
               {topTracksData && (
-                <ul className="flex flex-col gap-[30px]">
+                <ul className="flex flex-col gap-[20px] md:gap-[30px]">
                   {topTracksData.items.slice(0, 10).map((item) => (
                     <TrackItem item={item} key={item.id} />
                   ))}
