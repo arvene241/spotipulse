@@ -95,6 +95,10 @@ interface PlaylistItems {
   uri: string;
 }
 
+interface RecentItems {
+  track: TracksItems;
+}
+
 export interface SpotifyUser {
   country: string;
   display_name: string;
@@ -134,4 +138,10 @@ export interface TopArtists {
   href: string;
   total: number;
   items: ArtistItems[];
+}
+
+export interface RecentlyPlayed {
+  href: string;
+  total: number;
+  items: RecentItems[];
 }
