@@ -4,7 +4,7 @@
 
 @layer components {
   .main {
-    @apply min-h-screen w-full px-[25px] py-[30px] md:px-[40px] md:py-[50px] lg:px-[50px] lg:py-[60px];
+    @apply min-h-screen w-full py-[25px] md:px-[40px] md:py-[50px] lg:px-[50px] lg:py-[60px] xl:p-20;
   }
 
   .hover-active {

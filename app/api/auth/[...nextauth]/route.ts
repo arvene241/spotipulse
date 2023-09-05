@@ -61,8 +61,6 @@ const handler = NextAuth({
       authorization: LOGIN_URL,
     })
   ],
-  // save the token in the browser and make it encrypted
-  secret: process.env.JWT_SECRET,
   // specify URLs to be used if you want to create custom sign in, sign out and error pages.
   pages: {
     signIn: "/signin",
