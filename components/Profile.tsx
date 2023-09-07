@@ -125,14 +125,13 @@ const Profile = () => {
                         href={`/artist/${item.id}`}
                         className="flex items-center gap-[20px] group"
                       >
-                        <div className="relative w-[50px] h-[50px]">
+                        <div className="relative">
                           <Image
                             src={item.images[0].url}
                             alt="Album Artwork"
-                            fill
-                            className="rounded-full"
+                            width='300' height="300" className="rounded-full w-[50px] h-[50px] object-cover"
                           />
-                          <div className="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-[rgba(0,0,0,0.5)]">
+                          <div className="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-[rgba(0,0,0,0.5)] rounded-full">
                             <FaInfoCircle className="text-[25px]" />
                           </div>
                         </div>

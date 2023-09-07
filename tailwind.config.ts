@@ -29,6 +29,11 @@ const config: Config = {
       fontSize: {
         h1: '3.125rem',
       },
+      gridTemplateColumns: {
+        'sm-grid': "repeat( auto-fit, minmax(120px, 1fr) )",
+        'md-grid': "repeat( auto-fit, minmax(150px, 1fr) )",
+        'lg-grid': "repeat( auto-fit, minmax(200px, 1fr) )",
+      }
     },
   },
   plugins: [],

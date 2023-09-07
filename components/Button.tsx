@@ -1,7 +1,39 @@
 import { cn } from "@/libs/utils";
+import { cva } from "class-variance-authority";
 
-const Button = ({ content, handleClick, className }: { content: string, handleClick: () => void, className?: string}) => {
-  return ( <button onClick={handleClick} className={cn('bg-transparent text-white border border-white rounded-[30px] px-8 py-3 font-bold text-xs uppercase text-center tracking-widest hover:bg-white hover:text-black', className)}>{content}</button> );
+interface ButtonProps {
+  content: string;
+  handleClick: () => void;
+  variant?: "default" | "green" | "link";
+  className?: string;
 }
- 
+
+const buttonVariants = cva(
+  "bg-transparent text-white font-bold text-xs uppercase text-center tracking-widest",
+  {
+    variants: {
+      variant: {
+        default:
+          "border border-white rounded-[30px] px-8 py-3 hover:bg-white hover:text-black",
+        green: "rounded-full hover:bg-offGreen bg-green py-3 px-8",
+        link: "text-lightGrey underline-offset-4 hover:text-white hover:underline active:underline active:text-white",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
+
+const Button = ({ content, handleClick, variant, className }: ButtonProps) => {
+  return (
+    <button
+      onClick={handleClick}
+      className={cn(buttonVariants({ variant, className }))}
+    >
+      {content}
+    </button>
+  );
+};
+
 export default Button;

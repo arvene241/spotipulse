@@ -15,8 +15,8 @@ const TrackItem = ({ item }: TrackItemProps) => {
         href={`/track/${item.id}`}
         className="flex items-center gap-[20px] group"
       >
-        <div className="relative w-[50px] h-[50px]">
-          <Image src={item.album.images[0].url} alt="Album Artwork" fill />
+        <div className="relative">
+          <Image src={item.album.images[0].url} alt="Album Artwork" width='300' height="300" className="w-[50px] h-[50px] object-cover" />
           <div className="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-[rgba(0,0,0,0.5)]">
             <FaInfoCircle className="text-[25px]" />
           </div>
