@@ -20,7 +20,6 @@ import TrackItem from "./TrackItem";
 const Profile = () => {
   const dispatch = useAppDispatch();
   const accessToken = useAppSelector((state) => state.auth.accessToken);
-  const userProfile = useAppSelector((state) => state.auth.user);
 
   const router = useRouter();
 
@@ -44,13 +43,11 @@ const Profile = () => {
     signOut({ callbackUrl: "/signin" });
   };
 
-  {console.log('userData', userData)}
-  {console.log('userProfile', userProfile)}
-
   return (
     <main className="container main">
       {userData && (
         <div>
+          {/* Header */}
           <header className="flex flex-col items-center justify-center gap-5">
             <Image
               src={userData.images[0].url}

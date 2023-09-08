@@ -1,8 +1,6 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 const SignIn = () => {
   return (
