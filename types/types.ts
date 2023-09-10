@@ -30,7 +30,7 @@ interface Album {
   artists: ArtistItems[];
 }
 
-interface ArtistItems {
+export interface ArtistItems {
   external_urls: {
     spotify: string;
   }

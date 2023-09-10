@@ -119,7 +119,7 @@ const Profile = () => {
                   {topArtistsData.items.slice(0, 10).map((item) => (
                     <li key={item.id} className="w-full">
                       <Link
-                        href={`/artist/${item.id}`}
+                        href={`/artists/${item.id}`}
                         className="flex items-center gap-[20px] group"
                       >
                         <div className="relative">

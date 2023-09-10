@@ -75,11 +75,11 @@ const Artists = () => {
         </div>
       </header>
       {topArtists && (
-        <ul className="grid grid-cols-sm-grid sm:grid-cols-md-grid md:grid-cols-lg-grid gap-5 mt-[50px]">
+        <ul className="grid grid-cols-sm-grid sm:grid-cols-md-grid md:grid-cols-lg-grid gap-6 mt-[50px]">
           {topArtists.items.map((item) => (
             <li key={item.id}>
               <Link
-                href={`/artist/${item.id}`}
+                href={`/artists/${item.id}`}
                 className="flex flex-col items-center justify-center group"
               >
                 <div className="relative">

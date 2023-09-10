@@ -1,4 +1,4 @@
-import { FollowingArtists, Playlists, RecentlyPlayed, SpotifyUser, TopArtists, TopTracks } from "@/types/types";
+import { ArtistItems, FollowingArtists, Playlists, RecentlyPlayed, SpotifyUser, TopArtists, TopTracks } from "@/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
@@ -47,7 +47,7 @@ export const spotifyApi = createApi({
     getTopTracksLong: builder.query<TopTracks, string>({
       query: () => "/me/top/tracks?limit=50&time_range=long_term",
     }),
-    getArtist: builder.query({
+    getArtist: builder.query<ArtistItems, string>({
       query: (artistId) => `/artists/${artistId}`,
     }),
     doesUserFollowArtist: builder.query({

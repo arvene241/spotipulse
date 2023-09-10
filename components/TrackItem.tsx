@@ -12,7 +12,7 @@ const TrackItem = ({ item }: TrackItemProps) => {
   return (
     <li key={item.id} className="w-full">
       <Link
-        href={`/track/${item.id}`}
+        href={`/tracks/${item.id}`}
         className="flex items-center gap-[20px] group"
       >
         <div className="relative">

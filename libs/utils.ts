@@ -21,3 +21,5 @@ export const formatDurationForHumans = (millis: number) => {
 
 // Get year from YYYY-MM-DD
 export const getYear = (date: string) => date.split('-')[0];
+
+export const formatWithCommas = (n: number) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
