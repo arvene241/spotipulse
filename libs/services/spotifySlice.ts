@@ -1,4 +1,4 @@
-import { ArtistItems, FollowingArtists, Playlists, RecentlyPlayed, SpotifyUser, TopArtists, TopTracks } from "@/types/types";
+import { Artist, Artists, CurrentUser, Playlist, Playlists, RecentlyPlayed, TopItems } from "@/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
@@ -12,15 +12,16 @@ export const spotifyApi = createApi({
       // If we have a token set in state, let's assume that we should be passing it.
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
+      } else {
       }
       return headers;
     },
   }),
   endpoints: (builder) => ({
-    getUser: builder.query<SpotifyUser, string>({
+    getUser: builder.query<CurrentUser, string>({
       query: () => "/me",
     }),
-    getFollowing: builder.query<FollowingArtists, string>({
+    getFollowing: builder.query<Artists, string>({
       query: () => "/me/following?type=artist",
     }),
     getRecentlyPlayed: builder.query<RecentlyPlayed, string>({
@@ -29,25 +30,28 @@ export const spotifyApi = createApi({
     getPlaylists: builder.query<Playlists, string>({
       query: () => "/me/playlists",
     }),
-    getTopArtistsShort: builder.query<TopArtists, string>({
+    getPlaylist: builder.query<Playlist, string>({
+      query: (playlistId) => `/playlists/${playlistId}`,
+    }),
+    getTopArtistsShort: builder.query<TopItems, string>({
       query: () => "/me/top/artists?limit=50&time_range=short_term",
     }),
-    getTopArtistsMedium: builder.query<TopArtists, string>({
+    getTopArtistsMedium: builder.query<TopItems, string>({
       query: () => "/me/top/artists?limit=50&time_range=medium_term",
     }),
-    getTopArtistsLong: builder.query<TopArtists, string>({
+    getTopArtistsLong: builder.query<TopItems, string>({
       query: () => "/me/top/artists?limit=50&time_range=long_term",
     }),
-    getTopTracksShort: builder.query<TopTracks, string>({
+    getTopTracksShort: builder.query<TopItems, string>({
       query: () => "/me/top/tracks?limit=50&time_range=short_term",
     }),
-    getTopTracksMedium: builder.query<TopTracks, string>({
+    getTopTracksMedium: builder.query<TopItems, string>({
       query: () => "/me/top/tracks?limit=50&time_range=medium_term",
     }),
-    getTopTracksLong: builder.query<TopTracks, string>({
+    getTopTracksLong: builder.query<TopItems, string>({
       query: () => "/me/top/tracks?limit=50&time_range=long_term",
     }),
-    getArtist: builder.query<ArtistItems, string>({
+    getArtist: builder.query<Artist, string>({
       query: (artistId) => `/artists/${artistId}`,
     }),
     doesUserFollowArtist: builder.query({
@@ -70,6 +74,7 @@ export const {
   useGetFollowingQuery,
   useGetRecentlyPlayedQuery,
   useGetPlaylistsQuery,
+  useGetPlaylistQuery,
 
   // top artists
   useGetTopArtistsShortQuery,

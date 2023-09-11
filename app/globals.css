@@ -10,4 +10,8 @@
   .hover-active {
     @apply bg-black border-t-2 border-offGreen md:border-t-0 md:border-l-4;
   }
+
+  .playlistDesc a {
+    @apply text-white underline-offset-4 hover:underline active:underline;
+  }
 }

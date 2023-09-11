@@ -3,12 +3,12 @@ import { cva } from "class-variance-authority";
 
 interface ButtonProps {
   content: string;
-  handleClick: () => void;
+  handleClick?: () => void;
   variant?: "default" | "green" | "link";
   className?: string;
 }
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "bg-transparent text-white font-bold text-xs uppercase text-center tracking-widest",
   {
     variants: {
