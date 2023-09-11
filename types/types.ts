@@ -69,6 +69,8 @@ export interface Track extends Spotify {
   name: string;
   popularity: number;
   preview_url: string;
+  duration_ms: number;
+  disc_number: number;
 }
 
 export interface Items {
@@ -104,19 +106,27 @@ export interface CurrentUser extends Spotify {
   product: string;
 }
 
-export interface Artists extends Followers {
-  items: Artist[];
-}
-
-export interface RecentlyPlayed extends Followers {
-  items: {
-    track: Track;
-    played_at: string;
+export interface Artists {
+  artists: {
+    href: string;
+    total: number;
+    items: Artist[];
   }
 }
 
-export interface TopItems extends Followers {
-  items: Artist | Track;
+export interface RecentlyPlayed extends Followers {
+  items: [{
+    track: Track;
+    played_at: string;
+  }]
+}
+
+export interface TopTracks extends Followers {
+  items: Track[];
+}
+
+export interface TopArtists extends Followers {
+  items: Artist[]
 }
 
 // interface Album {
