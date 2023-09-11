@@ -115,8 +115,12 @@ export interface RecentlyPlayed extends Followers {
   }
 }
 
-export interface TopItems extends Followers {
-  items: Artist | Track;
+export interface TopTracks extends Followers {
+  items: Track[];
+}
+
+export interface TopArtists extends Followers {
+  items: Artist[];
 }
 
 // interface Album {
