@@ -69,6 +69,8 @@ export interface Track extends Spotify {
   name: string;
   popularity: number;
   preview_url: string;
+  duration_ms: number;
+  disc_number: number;
 }
 
 export interface Items {

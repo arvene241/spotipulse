@@ -1,11 +1,11 @@
-import { TracksItems } from "@/types/types";
+import { Track } from "@/types/types";
 import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDuration } from "@/libs/utils";
 
 interface TrackItemProps {
-  item: TracksItems;
+  item: Track;
 }
 
 const TrackItem = ({ item }: TrackItemProps) => {
