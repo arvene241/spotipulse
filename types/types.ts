@@ -109,10 +109,10 @@ export interface Artists extends Followers {
 }
 
 export interface RecentlyPlayed extends Followers {
-  items: {
+  items: [{
     track: Track;
     played_at: string;
-  }
+  }]
 }
 
 export interface TopTracks extends Followers {
