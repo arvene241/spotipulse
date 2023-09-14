@@ -20,22 +20,22 @@ export default function Page({ params }: { params: { slug: string } }) {
           />
           <div>
             <h1 className="font-black text-4xl md:text-7xl text-center">{artistData.name}</h1>
-            <div className="flex items-center justify-around mt-[30px] text-center">
+            <div className="grid grid-cols-3 mt-[30px]">
               <div>
-                <h2 className="text-lg md:text-2xl font-black text-offGreen">
+                <h2 className="text-lg md:text-2xl font-black text-offGreen text-center">
                   {formatWithCommas(artistData.followers.total)}
                 </h2>
-                <p className="text-xs uppercase text-lightGrey">Followers</p>
+                <p className="text-xs uppercase text-lightGrey text-center">Followers</p>
               </div>
               <div>
-                <h2 className="text-lg md:text-2xl font-black capitalize text-offGreen">
+                <h2 className="text-lg md:text-2xl font-black capitalize text-offGreen text-center">
                   {artistData.genres.map((genre) => genre).join(", ")}
                 </h2>
-                <p className="text-xs uppercase text-lightGrey">Genres</p>
+                <p className="text-xs uppercase text-lightGrey text-center">Genres</p>
               </div>
               <div>
-                <h2 className="text-lg md:text-2xl font-black text-offGreen">{artistData.popularity}%</h2>
-                <p className="text-xs uppercase text-lightGrey">Popularity</p>
+                <h2 className="text-lg md:text-2xl font-black text-offGreen text-center">{artistData.popularity}%</h2>
+                <p className="text-xs uppercase text-lightGrey text-center">Popularity</p>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               href={playlistData.external_urls.spotify}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-black text-2xl mt-5"
+              className="font-black text-2xl mt-5 inline-block"
             >
               {playlistData.name}
             </Link>
@@ -37,7 +37,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               <p className="text-sm text-lightestGrey playlistDesc" dangerouslySetInnerHTML={{ __html: playlistData.description }} />
             )}
             <p className="text-sm mt-5">{playlistData.tracks.total} Tracks</p>
-            <Link href="/recommendations" className={cn(buttonVariants({variant: 'green'}), 'mt-5 mb-[50px] uppercase')}>Get Recommendations</Link>
+            <Link href="/recommendations" className={cn(buttonVariants({variant: 'green'}), 'mt-5 mb-[50px] uppercase inline-block')}>Get Recommendations</Link>
           </div>
 
           <ul className="flex-1 mt-12 flex flex-col gap-[20px] md:gap-[30px] my-[50px] md:my-0">
