@@ -54,11 +54,8 @@ export const spotifyApi = createApi({
     getArtist: builder.query<Artist, string>({
       query: (artistId) => `/artists/${artistId}`,
     }),
-    doesUserFollowArtist: builder.query({
-      query: (artistId) => `/me/following/contains?type=artist&ids=${artistId}`,
-    }),
-    doesUserFollowPlaylist: builder.query({
-      query: ({ playlistId, userId }) => `/playlists/${playlistId}/followers/contains?ids=${userId}`,
+    getAnalysis: builder.query({
+      query: (id) => `/audio-analysis/${id}`,
     }),
     getRecommendationsForTracks: builder.query({
       query: ({ trackIds, limit }) => `/recommendations?limit=${limit}&seed_tracks=${trackIds}`,
@@ -88,8 +85,9 @@ export const {
 
   // artists
   useGetArtistQuery,
-  useDoesUserFollowArtistQuery,
-  useDoesUserFollowPlaylistQuery,
+
+  // Track Audio Analysis
+  useGetAnalysisQuery,
 
   // tracks recommendations
   useGetRecommendationsForTracksQuery,
