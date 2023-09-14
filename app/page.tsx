@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/libs/hooks";
 import { setCredentials } from "@/libs/features/authSlice";
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { data: session } = useSession({ required: true });
 
   const dispatch = useAppDispatch();
   dispatch(setCredentials({ accessToken: session?.accessToken, user: session?.user }));

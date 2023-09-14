@@ -9,7 +9,7 @@ const AccessToken = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { data: session } = useSession();
+  const { data: session } = useSession({ required: true });
 
   const dispatch = useAppDispatch();
   dispatch(
