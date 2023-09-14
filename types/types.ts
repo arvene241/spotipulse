@@ -41,6 +41,74 @@ interface Owner extends Spotify {
   display_name: string;
 }
 
+interface TrackAnalysis {
+  num_samples: number;
+  duration: number;
+  sample_md5: string;
+  offset_seconds: number;
+  window_seconds: number;
+  analysis_sample_rate: number;
+  analysis_channels: number;
+  end_of_fade_in: number;
+  start_of_fade_out: number;
+  loudness: number;
+  tempo: number;
+  tempo_confidence: number;
+  time_signature: number;
+  time_signature_confidence: number;
+  key: number;
+  key_confidence: number;
+  mode: number;
+  mode_confidence: number;
+  codestring: string;
+  code_version: number;
+  echoprintstring: string;
+  echoprint_version: number;
+  synchstring: string;
+  synch_version: number;
+  rhythmstring: string;
+  rhythm_version: number;
+}
+
+interface BarAnalysis {
+  start: number;
+  duration: number;
+  confidence: number;
+}
+
+interface BeatAnalysis {
+  start: number;
+  duration: number;
+  confidence: number;
+}
+
+interface SectionAnalysis {
+  start: number;
+  duration: number;
+  confidence: number;
+  loudness: number;
+  tempo: number;
+  tempo_confidence: number;
+  key: number;
+  key_confidence: number;
+  mode: number;
+  mode_confidence: number;
+  time_signature: number;
+  time_signature_confidence: number;
+}
+
+interface SegmentAnalysis {
+  start: number;
+  duration: number;
+  confidence: number;
+  loudness_start: number;
+  loudness_max_time: number;
+  loudness_max: number;
+  loudness_end: number;
+  pitches: number[];
+  timbre: number[];
+}
+
 export interface Album extends Spotify {
   album_type: string;
   total_tracks: number;
@@ -129,148 +197,11 @@ export interface TopArtists extends Followers {
   items: Artist[];
 }
 
-// interface Album {
-//   album_type: string;
-//   total_tracks: number;
-//   available_markets: Array<string>;
-//   external_urls: {
-//     spotify: string;
-//   }
-//   href: string;
-//   id: string;
-//   images: Images[];
-//   name: string;
-//   release_date: string;
-//   type: string;
-//   uri: string;
-//   genres: Array<string>;
-//   label: string;
-//   popularity: number;
-//   album_group: string;
-//   artists: ArtistItems[];
-// }
-
-// export interface ArtistItems {
-//   external_urls: {
-//     spotify: string;
-//   }
-//   followers: Follower
-//   genres: Array<string>;
-//   href: string;
-//   id: string;
-//   images: Images[];
-//   name: string;
-//   popularity: number;
-//   type: string;
-//   uri: string;
-// }
-
-// interface PlaylistOwner {
-//   external_urls: {
-//     spotify: string;
-//   }
-//   followers: Follower;
-//   href: string;
-//   id: string;
-//   type: string;
-//   uri: string;
-//   display_name: string;
-// }
-
-// export interface TracksItems {
-//   album: Album;
-//   artists: ArtistItems[];
-//   available_markets: Array<string>;
-//   disc_number: number;
-//   duration_ms: number;
-//   explicit: boolean;
-//   external_urls: {
-//     spotify: string;
-//   }
-//   href: string;
-//   id: string;
-//   name: string;
-//   popularity: number;
-//   preview_url: string;
-//   track_number: number;
-//   uri: string;
-//   is_local: boolean;
-// }
-
-// export interface PlaylistItems {
-//   collaborative: string;
-//   description: string;
-//   external_urls: {
-//     spotify: string;
-//   }
-//   href: string;
-//   id: string;
-//   images: Images[];
-//   name: string;
-//   owner: PlaylistOwner;
-//   public: boolean;
-//   snapshot_id: string;
-//   tracks: Tracks;
-//   type: string;
-//   uri: string;
-// }
-
-// interface RecentItems {
-//   track: TracksItems;
-// }
-
-// export interface SpotifyUser {
-//   country: string;
-//   display_name: string;
-//   email: string;
-//   followers: Follower;
-//   href: string;
-//   id: string;
-//   images: Images[];
-//   type: string;
-//   uri: string;
-//   external_urls: {
-//     spotify: string;
-//   }
-// }
-
-// export interface FollowingArtists {
-//   artists: {
-//     href: string;
-//     total: number;
-//     items: ArtistItems[];
-//   }
-// }
-
-// export interface Playlists {
-//   href: string;
-//   total: number;
-//   items: PlaylistItems[];
-// }
-
-// export interface TopTracks {
-//   href: string;
-//   total: number;
-//   items: TracksItems[];
-// }
-
-// export interface TopArtists {
-//   href: string;
-//   total: number;
-//   items: ArtistItems[];
-// }
-
-// export interface RecentlyPlayed {
-//   href: string;
-//   total: number;
-//   items: RecentItems[];
-// }
-
-// interface Tracks {
-//   href: string;
-//   total: number;
-//   items: [{
-//     added_by: PlaylistOwner,
-//     track: TracksItems
-//   }]
-// }
+export interface AudioAnalysis {
+  track: TrackAnalysis;
+  bars: BarAnalysis[];
+  beats: BeatAnalysis[];
+  sections: SectionAnalysis[];
+  segments: SegmentAnalysis[];
+  tatums: BeatAnalysis[];
+}
