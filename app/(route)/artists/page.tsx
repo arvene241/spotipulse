@@ -88,7 +88,7 @@ const Artists = () => {
                     alt={item.name}
                     width="300"
                     height="300"
-                    className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
+                    className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
                   />
                   <div className="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-[rgba(0,0,0,0.5)] rounded-full">
                     <FaInfoCircle className="text-[25px]" />

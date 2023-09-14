@@ -20,7 +20,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           />
           <div>
             <h1 className="font-black text-4xl md:text-7xl text-center">{artistData.name}</h1>
-            <div className="grid grid-cols-3 mt-[30px]">
+            <div className="grid grid-cols-3 mt-[30px] gap-3">
               <div>
                 <h2 className="text-lg md:text-2xl font-black text-offGreen text-center">
                   {formatWithCommas(artistData.followers.total)}
